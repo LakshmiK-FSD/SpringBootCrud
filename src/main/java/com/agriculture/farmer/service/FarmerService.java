@@ -14,7 +14,36 @@ public class FarmerService {
             new Farmers(5, 29, "Sita", "Maize"),
             new Farmers(6, 60, "Kumar", "Soybean")
     ));
+
     public List<Farmers> farmDetail() {
         return farmers;
+
+    }
+
+    private int i = 0;
+
+    public Farmers search(int id) {
+        for (Farmers sarchf : farmers) {
+            if (sarchf.getId() == id) {
+                return sarchf;
+            }
+        }
+        return null;
+    }
+
+    public String addObj(Farmers newFarmer) {
+        farmers.add(newFarmer);
+        return "succsessfully added your detailsfarmer";
+    }
+    public String delletObj(int id) {
+        for (Farmers sarchf : farmers) {
+            if (sarchf.getId() == id) {
+                farmers.remove(id);
+                return "succsessfully delleted";
+            }
+        }
+                return "Not found this Id";
+
+
     }
 }
