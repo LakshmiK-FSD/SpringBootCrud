@@ -28,4 +28,12 @@ public class FarmerController {
     public String delletobj(@PathVariable("delId") int id){
         return farmServ.delletObj(id);
     }
+    @PutMapping("/update/{id}")
+    public String upDate( @PathVariable("id") int id,@RequestBody Farmers farmUD){
+        return farmServ.upDate(id,farmUD);
+    }
+    @PutMapping("/update")
+    public String upDat(@RequestBody Farmers upFarm){
+        return farmServ.upDat(upFarm);
+    }
 }

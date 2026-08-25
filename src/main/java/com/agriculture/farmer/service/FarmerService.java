@@ -38,12 +38,29 @@ public class FarmerService {
     public String delletObj(int id) {
         for (Farmers sarchf : farmers) {
             if (sarchf.getId() == id) {
-                farmers.remove(id);
-                return "succsessfully delleted";
+                Farmers dlet=farmers.remove(sarchf.getId()-1);
+                return "succsessfully delleted"+" "+dlet.getFarmerName();
             }
         }
                 return "Not found this Id";
 
 
+    }
+
+    public String upDate(int getID,Farmers getFarm) {
+        if (getID-1>0 && getID<farmers.size()){
+        farmers.set(getID-1,getFarm);
+        return "Updated Succsessfully for "+getID;}
+        return "The Details with id "+getID+" not match";
+    }
+
+    public String upDat(Farmers upFarm) {
+        for (Farmers f:farmers){
+            if (f.getId()==upFarm.getId()){
+                farmers.set(f.getId()-1,upFarm);
+                return "Updated Succsessfully for "+ f.getId();
+            }
+        }
+        return "The Details with id "+upFarm.getId()+" not match";
     }
 }
